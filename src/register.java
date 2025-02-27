@@ -82,7 +82,7 @@ public class register extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/2-removebg-preview.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 10, 430, 540));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 430, 540));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 500));
 
@@ -156,7 +156,7 @@ public class register extends javax.swing.JFrame {
         });
         jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 210, 30));
 
-        jButton1.setBackground(new java.awt.Color(153, 51, 0));
+        jButton1.setBackground(new java.awt.Color(153, 0, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(240, 240, 240));
         jButton1.setText("SUBMIT");
