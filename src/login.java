@@ -98,8 +98,14 @@ public class login extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 donthaveaccountMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                donthaveaccountMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                donthaveaccountMouseExited(evt);
+            }
         });
-        jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 140, 20));
+        jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 150, 20));
 
         loginButton.setBackground(new java.awt.Color(153, 0, 0));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -162,10 +168,19 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void donthaveaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccountMouseClicked
-     register re = new register();
-     re.setVisible(true);
-     this.dispose();
+        register re = new register();
+        re.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_donthaveaccountMouseClicked
+
+    private void donthaveaccountMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccountMouseEntered
+       
+        donthaveaccount.setForeground(new java.awt.Color(102, 102, 102));
+    }//GEN-LAST:event_donthaveaccountMouseEntered
+
+    private void donthaveaccountMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccountMouseExited
+        donthaveaccount.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_donthaveaccountMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

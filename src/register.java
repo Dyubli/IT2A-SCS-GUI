@@ -72,6 +72,7 @@ public class register extends javax.swing.JFrame {
         jLabel3.setText("SIGN IN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(240, 240, 240));
@@ -179,6 +180,7 @@ public class register extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -206,35 +208,39 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_typeItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
-       if(user.getText().isEmpty()||pass.getText().isEmpty()||email.getText().isEmpty()||cont.getText().isEmpty()){
-           JOptionPane.showMessageDialog(null,"All  Fields are  required!");
-             }else if(pass.getText().length() < 8){
-           JOptionPane.showMessageDialog(null,"Password should have at least 8 characters.!");
-           pass.setText("");
-             }else if(duplicateCheck()){             
-             System.out.println("Duplicate Exist");
-             }else{
-        
-           dbConnector dbc = new dbConnector();
-         int rowsAffected = dbc.insertData("INSERT INTO tbl_user(u_user, u_pass, u_email, u_contact, u_type, u_status)"
-        + "VALUES('"+user.getText()+"', '"+pass.getText()+"', '"+email.getText()+"', '"+cont.getText()+"',"
-        + "'"+type.getSelectedItem()+"', 'Pending')");
+         if(user.getText().isEmpty() || pass.getText().isEmpty() || email.getText().isEmpty() || cont.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "All Fields are required!");
+        } else if(pass.getText().length() < 8) {
+            JOptionPane.showMessageDialog(null, "Password should have at least 8 characters.!");
+             pass.setText("");
+        } else if(!cont.getText().matches("\\d+")) {  // Validate numeric contact number
+            JOptionPane.showMessageDialog(null, "Contact number should contain only numbers!");
+            cont.setText("");
+        } else if(!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) { // Validate proper email format
+             JOptionPane.showMessageDialog(null, "Please enter a valid email address!");
+             email.setText("");
+        } else if(duplicateCheck()) {             
+            System.out.println("Duplicate Exist");
+        } else {
+            dbConnector dbc = new dbConnector();
+            int rowsAffected = dbc.insertData("INSERT INTO tbl_user(u_user, u_pass, u_email, u_contact, u_type, u_status)"
+                + "VALUES('" + user.getText() + "', '" + pass.getText() + "', '" + email.getText() + "', '" + cont.getText() + "',"
+                + "'" + type.getSelectedItem() + "', 'Pending')");
 
         if (rowsAffected > 0) {
-            JOptionPane.showMessageDialog(null,"Inserted Successfully!");
+          JOptionPane.showMessageDialog(null, "Inserted Successfully!");
             login lf = new login();
             lf.setVisible(true);
             this.dispose();
-        } else {
+         } else {
             String errorMessage = "Connection Error!";
-            if (rowsAffected == 0) {
-                errorMessage = "Error inserting user. Likely a duplicate entry or other constraint violation.";
-            }
-            JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE); // More informative error message and icon
+             if (rowsAffected == 0) {
+            errorMessage = "Error inserting user. Likely a duplicate entry or other constraint violation.";
         }
-        
-        }
+        JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
