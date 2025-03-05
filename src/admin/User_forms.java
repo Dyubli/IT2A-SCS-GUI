@@ -24,12 +24,13 @@ public class User_forms extends javax.swing.JFrame {
         displayData();
     }
 
-     public void displayData(){
+     private void displayData(){
         try{
             dbConnector dbc = new dbConnector();
+            
             ResultSet rs = dbc.getData("SELECT u_id, u_USER, u_email, u_contact  FROM tbl_user");
             table_user.setModel(DbUtils.resultSetToTableModel(rs));
-             rs.close();
+            
         }catch(SQLException ex){
             System.out.println("Errors: "+ex.getMessage());
 
