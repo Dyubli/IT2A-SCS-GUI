@@ -10,7 +10,7 @@ package admin;
  * @author user
  */
 public class adminDashboard extends javax.swing.JFrame {
-
+    private String u_user;
     /**
      * Creates new form adminDashboard
      */
@@ -18,6 +18,12 @@ public class adminDashboard extends javax.swing.JFrame {
         initComponents();
     }
 
+    public adminDashboard(String u_user) {
+        this.u_user = u_user;
+        initComponents();        
+        label.setText(u_user);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +44,7 @@ public class adminDashboard extends javax.swing.JFrame {
         logout = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Enter Username");
@@ -52,6 +59,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         medicine.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         medicine.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,6 +73,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 medicineMouseExited(evt);
             }
         });
+        jPanel1.add(medicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 207, 224, 56));
 
         logs.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         logs.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,6 +87,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 logsMouseExited(evt);
             }
         });
+        jPanel1.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 292, 224, 51));
 
         users.setBackground(new java.awt.Color(255, 255, 255));
         users.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -95,26 +105,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 usersMouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(users, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(medicine, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-            .addComponent(logs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(medicine, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(logs, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
+        jPanel1.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 125, 224, 64));
 
         logout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         logout.setText("LOGOUT");
@@ -130,7 +121,10 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile (1).png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel8.setText("HI ADMIN !");
+        jLabel8.setText("Hi Admin");
+
+        label.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        label.setText("User");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -146,8 +140,10 @@ public class adminDashboard extends javax.swing.JFrame {
                         .addGap(17, 17, 17)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 251, Short.MAX_VALUE)))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -160,7 +156,9 @@ public class adminDashboard extends javax.swing.JFrame {
                         .addComponent(jLabel6))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
-                        .addComponent(jLabel8)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(label))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logout)
                 .addContainerGap())
@@ -254,6 +252,7 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel label;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel logs;
     private javax.swing.JLabel medicine;

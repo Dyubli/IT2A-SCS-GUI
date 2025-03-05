@@ -1,8 +1,12 @@
 
 import admin.adminDashboard;
 import config.dbConnector;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import user.userDashboard;
 
@@ -142,29 +146,49 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-         if (loginAcc(user.getText(), pass.getText())) { 
-            if (!status.equals("Active")) {
-                JOptionPane.showMessageDialog(null, "Account is not active!");
-            } else {
+        String u_user = user.getText();
+        String u_pass = new String(pass.getPassword());     
+
+        dbConnector db = new dbConnector();
+        String sql = "SELECT * FROM tbl_user WHERE u_user = ? AND u_pass = ?";
+
+        try (Connection conn = db.getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+
+            pst.setString(1, u_user);
+            pst.setString(2, u_pass);
+            ResultSet rs = pst.executeQuery();
+
+            if (rs.next()) {
+                String status = rs.getString("u_status"); 
+                String type = rs.getString("u_type");
+
+                if (!"Active".equals(status)) {
+                    JOptionPane.showMessageDialog(null, "Account is not active!");
+                    return;
+                }
+
                 JOptionPane.showMessageDialog(null, "Login Success!");
-                if (type.equals("Admin")) {
-                    adminDashboard ad = new adminDashboard();
+                
+                u_user = rs.getString("u_user");
+
+                if ("Admin".equals(type)) {
+                    adminDashboard ad = new adminDashboard(u_user);
                     ad.setVisible(true);
-                } else if (type.equals("User")) {
+                } else if ("User".equals(type)) {
                     userDashboard us = new userDashboard();
                     us.setVisible(true);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Account not found!");
+                    JOptionPane.showMessageDialog(null, "Account type not recognized!");
                 }
-                this.dispose();
+                this.dispose(); // Close the login window
+            } else {
+                JOptionPane.showMessageDialog(null, "Login Failed! Invalid credentials.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Login Failed!");
-        }
-    
-        
-
-        
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
+        }                                           
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void donthaveaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccountMouseClicked

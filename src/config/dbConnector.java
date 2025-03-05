@@ -42,5 +42,8 @@ public class dbConnector {
             return result;
         }  
 
+    public Connection getConnection() {
+        return connect;
+    }
 
 }
