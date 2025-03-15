@@ -11,11 +11,18 @@ package user;
  */
 public class userDashboard extends javax.swing.JFrame {
 
+    private String u_user;
+
     /**
      * Creates new form userDashboard
      */
     public userDashboard() {
         initComponents();
+    }
+    public userDashboard(String u_user) {
+        this.u_user = u_user;
+        initComponents();        
+        user.setText(u_user);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,9 +32,10 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        user = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         logout = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("LOGOUT");
@@ -40,9 +48,9 @@ public class userDashboard extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile (1).png"))); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setText("HI USER !");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, 35));
+        user.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        user.setText("USER");
+        jPanel3.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, 35));
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 0));
 
@@ -70,6 +78,10 @@ public class userDashboard extends javax.swing.JFrame {
             }
         });
         jPanel3.add(logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 480, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel3.setText("HI");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, 35));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,19 +134,20 @@ public class userDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new userDashboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new userDashboard().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logout;
+    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
+
+    
 }

@@ -5,6 +5,8 @@
  */
 package admin;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -110,6 +112,9 @@ public class adminDashboard extends javax.swing.JFrame {
         logout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         logout.setText("LOGOUT");
         logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 logoutMouseEntered(evt);
             }
@@ -209,6 +214,15 @@ public class adminDashboard extends javax.swing.JFrame {
         logs.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_logsMouseExited
 
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        this.dispose(); // Close current window
+
+    }
+    }//GEN-LAST:event_logoutMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -237,10 +251,8 @@ public class adminDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new adminDashboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new adminDashboard().setVisible(true);
         });
     }
 
