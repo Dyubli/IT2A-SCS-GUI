@@ -1,5 +1,6 @@
 
 import admin.adminDashboard;
+import config.Session;
 import config.dbConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,12 +29,21 @@ public class login extends javax.swing.JFrame {
         try{
             String query = "SELECT * FROM tbl_user  WHERE u_user = '" + username + "' AND u_pass = '" + password + "'";
             ResultSet resultSet = connector.getData(query);   
-      if(resultSet.next()){
-       status = resultSet.getString("u_status");
-       type = resultSet.getString("u_type");
-      return true;
-      }else{
-            return false;
+             if(resultSet.next()){
+             status = resultSet.getString("u_status");
+             type = resultSet.getString("u_type");
+             
+             Session sess = Session.getInstance();
+             sess.setUid(resultSet.getInt("u_id"));
+             sess.setUser(resultSet.getString("u_user"));
+             sess.setEmail(resultSet.getString("u_email"));
+             sess.setContact(resultSet.getString("u_contact"));
+             sess.setType(resultSet.getString("u_type"));
+             sess.setStatus(resultSet.getString("u_status"));
+                 System.out.println(""+sess.getUid());
+                return true;
+            }else{
+              return false;
       } 
             
         }catch (SQLException ex) {
@@ -71,12 +81,12 @@ public class login extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 171, 145));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/2-removebg-preview.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 430, 540));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 410, 520));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 500));
 
@@ -111,7 +121,7 @@ public class login extends javax.swing.JFrame {
         });
         jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 150, 20));
 
-        loginButton.setBackground(new java.awt.Color(153, 0, 0));
+        loginButton.setBackground(new java.awt.Color(0, 171, 145));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("SUBMIT");
@@ -146,7 +156,7 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        String u_user = user.getText();
+         String u_user = user.getText();
         String u_pass = new String(pass.getPassword());     
 
         dbConnector db = new dbConnector();

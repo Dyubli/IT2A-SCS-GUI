@@ -5,7 +5,9 @@
  */
 package admin;
 
+import config.Session;
 import javax.swing.JOptionPane;
+import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -38,15 +40,14 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jpanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         medicine = new javax.swing.JLabel();
         logs = new javax.swing.JLabel();
         users = new javax.swing.JLabel();
-        logout = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         label = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        logout = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Enter Username");
@@ -56,11 +57,16 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jpanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 171, 145));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         medicine.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -75,7 +81,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 medicineMouseExited(evt);
             }
         });
-        jPanel1.add(medicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 207, 224, 56));
+        jPanel1.add(medicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 224, 56));
 
         logs.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         logs.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,7 +95,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 logsMouseExited(evt);
             }
         });
-        jPanel1.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 292, 224, 51));
+        jPanel1.add(logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 224, 51));
 
         users.setBackground(new java.awt.Color(255, 255, 255));
         users.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -107,7 +113,16 @@ public class adminDashboard extends javax.swing.JFrame {
                 usersMouseExited(evt);
             }
         });
-        jPanel1.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 125, 224, 64));
+        jPanel1.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 224, 64));
+
+        label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label.setForeground(new java.awt.Color(255, 255, 255));
+        label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label.setText("User");
+        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user_3161848.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         logout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         logout.setText("LOGOUT");
@@ -123,66 +138,67 @@ public class adminDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/profile (1).png"))); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel8.setText("Hi Admin");
-
-        label.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        label.setText("User");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout jpanelLayout = new javax.swing.GroupLayout(jpanel);
+        jpanel.setLayout(jpanelLayout);
+        jpanelLayout.setHorizontalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 38, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 628, Short.MAX_VALUE)
+                .addComponent(logout)
                 .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(label))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jpanelLayout.setVerticalGroup(
+            jpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addGroup(jpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(logout)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 500));
+        getContentPane().add(jpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 500));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
-        logout.setForeground(new java.awt.Color(102, 102, 102));
-
-    }//GEN-LAST:event_logoutMouseEntered
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       Session sess = Session.getInstance();
+       if(sess.getUid() == 0){
+           System.out.println("");
+       }else{
+           label.setText(""+sess.getUser());
+       }
+       
+    }//GEN-LAST:event_formWindowActivated
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
         logout.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_logoutMouseExited
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        logout.setForeground(new java.awt.Color(102, 102, 102));
+    }//GEN-LAST:event_logoutMouseEntered
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            login lg = new login();
+            lg.setVisible(true);
+            this.dispose(); // Close current window
+
+        }
+    }//GEN-LAST:event_logoutMouseClicked
+
+    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
+        users.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_usersMouseExited
+
+    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
+        users.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_usersMouseEntered
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
         User_forms uf = new User_forms();
@@ -190,38 +206,21 @@ public class adminDashboard extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_usersMouseClicked
 
-    private void usersMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseEntered
-       users.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_usersMouseEntered
-
-    private void usersMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseExited
-        users.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_usersMouseExited
-
-    private void medicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicineMouseEntered
-        medicine.setForeground(new java.awt.Color(0, 0, 0));
-    }//GEN-LAST:event_medicineMouseEntered
-
-    private void medicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicineMouseExited
-        medicine.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_medicineMouseExited
+    private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
+        logs.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_logsMouseExited
 
     private void logsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseEntered
         logs.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_logsMouseEntered
 
-    private void logsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logsMouseExited
-        logs.setForeground(new java.awt.Color(255, 255, 255));
-    }//GEN-LAST:event_logsMouseExited
+    private void medicineMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicineMouseExited
+        medicine.setForeground(new java.awt.Color(255, 255, 255));
+    }//GEN-LAST:event_medicineMouseExited
 
-    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
-        int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
-    
-    if (confirm == JOptionPane.YES_OPTION) {
-        this.dispose(); // Close current window
-
-    }
-    }//GEN-LAST:event_logoutMouseClicked
+    private void medicineMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_medicineMouseEntered
+        medicine.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_medicineMouseEntered
 
     /**
      * @param args the command line arguments
@@ -258,12 +257,11 @@ public class adminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jpanel;
     private javax.swing.JLabel label;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel logs;

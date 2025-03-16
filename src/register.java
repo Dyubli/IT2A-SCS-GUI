@@ -78,7 +78,7 @@ public class register extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(240, 240, 240));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(0, 171, 145));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/2-removebg-preview.png"))); // NOI18N
@@ -157,7 +157,7 @@ public class register extends javax.swing.JFrame {
         });
         jPanel1.add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 300, 210, 30));
 
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
+        jButton1.setBackground(new java.awt.Color(0, 171, 145));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(240, 240, 240));
         jButton1.setText("SUBMIT");

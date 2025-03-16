@@ -52,7 +52,7 @@ public class userDashboard extends javax.swing.JFrame {
         user.setText("USER");
         jPanel3.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, -1, 35));
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 171, 145));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
