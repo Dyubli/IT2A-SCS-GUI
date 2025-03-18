@@ -1,3 +1,5 @@
+package admin;
+
 
 import config.dbConnector;
 import java.sql.ResultSet;
@@ -5,10 +7,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 
-public class register extends javax.swing.JFrame {
+public class createUserForm extends javax.swing.JFrame {
 
  
-    public register() {
+    public createUserForm() {
         initComponents();
     }
 
@@ -188,7 +190,7 @@ public class register extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +247,7 @@ public class register extends javax.swing.JFrame {
 
         if (rowsAffected > 0) {
           JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-            login lf = new login();
+            User_forms lf = new User_forms();
             lf.setVisible(true);
             this.dispose();
          } else {
@@ -262,7 +264,7 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        login log = new login();
+        User_forms log = new User_forms();
         log.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -305,10 +307,8 @@ public class register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new createUserForm().setVisible(true);
         });
     }
 

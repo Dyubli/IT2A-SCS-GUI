@@ -81,14 +81,14 @@ public class login extends javax.swing.JFrame {
         jPanel1.setToolTipText("");
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 171, 145));
+        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/2-removebg-preview.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 410, 520));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 400, 540));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 500));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 500));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("____________________________________________________________________________________");
@@ -121,9 +121,8 @@ public class login extends javax.swing.JFrame {
         });
         jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 410, 150, 20));
 
-        loginButton.setBackground(new java.awt.Color(0, 171, 145));
+        loginButton.setBackground(new java.awt.Color(102, 204, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
         loginButton.setText("SUBMIT");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
