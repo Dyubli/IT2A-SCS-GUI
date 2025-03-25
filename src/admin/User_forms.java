@@ -129,7 +129,7 @@ public class User_forms extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 730, 500));
 
-        jPanel5.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel5.setBackground(new java.awt.Color(0, 102, 153));
 
         back.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         back.setText("BACK");

@@ -142,8 +142,7 @@ public class adminDashboard extends javax.swing.JFrame {
 
         label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label.setText("User");
-        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 220, -1));
+        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 230, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user_3161848.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, 70));
@@ -281,7 +280,8 @@ public class adminDashboard extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        Session sess = Session.getInstance();
-       if(sess.getUid() == 0){
+       
+       if(sess.getUid()== 0){
            System.out.println("");
        }else{
            label.setText(""+sess.getUser());
