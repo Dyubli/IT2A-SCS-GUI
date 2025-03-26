@@ -8,6 +8,10 @@ package admin;
 import config.dbConnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -179,6 +183,9 @@ public class User_forms extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("UPDATE USER");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel5MouseEntered(evt);
             }
@@ -263,6 +270,24 @@ public class User_forms extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_jLabel4MouseExited
 
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+       int rowindex = table_user.getSelectedRow();
+        if(rowindex < 0){
+            JOptionPane.showMessageDialog(null, "Please Select a Field");
+        }else {
+            TableModel model = table_user.getModel();
+            editUserForm cf = new editUserForm();
+            cf.name.setText(""+model.getValueAt(rowindex, 1));
+            cf.email.setText(""+model.getValueAt(rowindex, 2));
+            cf.cont.setText(""+model.getValueAt(rowindex, 3));
+            cf.type.setSelectedItem(""+model.getValueAt(rowindex, 4));
+            cf.status.setSelectedItem(""+model.getValueAt(rowindex, 5));
+            cf.setVisible(true);
+            this.dispose();
+        }
+       
+    }//GEN-LAST:event_jLabel5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -291,10 +316,8 @@ public class User_forms extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new User_forms().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new User_forms().setVisible(true);
         });
     }
 

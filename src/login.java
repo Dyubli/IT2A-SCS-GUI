@@ -25,7 +25,8 @@ public class login extends javax.swing.JFrame {
     
     
      public static boolean loginAcc(String username, String password){
-        dbConnector connector = new dbConnector();       
+        dbConnector connector = new dbConnector();  
+        
         try{
             String query = "SELECT * FROM tbl_user  WHERE u_user = '" + username + "' AND u_pass = '" + password + "'";
             ResultSet resultSet = connector.getData(query);   

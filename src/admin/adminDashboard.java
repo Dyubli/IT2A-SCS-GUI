@@ -43,7 +43,7 @@ public class adminDashboard extends javax.swing.JFrame {
     public adminDashboard(String u_user) {
         this.u_user = u_user;
         initComponents();        
-        label.setText(u_user);
+        acc_name.setText(u_user);
     }
     
     /**
@@ -63,7 +63,7 @@ public class adminDashboard extends javax.swing.JFrame {
         medicine = new javax.swing.JLabel();
         logs = new javax.swing.JLabel();
         users = new javax.swing.JLabel();
-        label = new javax.swing.JLabel();
+        acc_name = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         dashboard = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
@@ -140,9 +140,9 @@ public class adminDashboard extends javax.swing.JFrame {
         });
         jPanel1.add(users, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 224, 60));
 
-        label.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 230, 40));
+        acc_name.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        acc_name.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 230, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user_3161848.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, 70));
@@ -280,13 +280,11 @@ public class adminDashboard extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
        Session sess = Session.getInstance();
-       
        if(sess.getUid()== 0){
-           System.out.println("");
+           System.out.println("");    
        }else{
-           label.setText(""+sess.getUser());
+            acc_name.setText(""+sess.getUser());
        }
-       
     }//GEN-LAST:event_formWindowActivated
 
     private void logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseExited
@@ -386,6 +384,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel acc_name;
     private javax.swing.JLabel dashboard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -398,7 +397,6 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel jpanel;
-    private javax.swing.JLabel label;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel logs;
     private javax.swing.JLabel medicine;
