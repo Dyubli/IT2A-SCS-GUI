@@ -5,7 +5,14 @@
  */
 package admin;
 
+import static admin.createUserForm.em;
+import static admin.createUserForm.usr;
 import config.dbConnector;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +26,17 @@ public class editUserForm extends javax.swing.JFrame {
      */
     public editUserForm() {
         initComponents();
+    }
+    private boolean userExists(String username) throws SQLException {
+        dbConnector dbc = new dbConnector();
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_user WHERE u_user = '" + username + "'");
+
+        try {
+            return rs.next(); // Returns true if a user with the given username exists
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
@@ -191,33 +209,49 @@ public class editUserForm extends javax.swing.JFrame {
     }//GEN-LAST:event_typeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(name.getText().isEmpty() || email.getText().isEmpty() || cont.getText().isEmpty()) {
+        if (name.getText().isEmpty() || email.getText().isEmpty() || cont.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "All Fields are required!");
-        } else if(!cont.getText().matches("\\d+")) {  // Validate numeric contact number
+        } else if (!cont.getText().matches("\\d+")) {  // Validate numeric contact number
             JOptionPane.showMessageDialog(null, "Contact number should contain only numbers!");
             cont.setText("");
-        } else if(!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) { // Validate proper email format
+        } else if (!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) { // Validate proper email format
             JOptionPane.showMessageDialog(null, "Please enter a valid email address!");
             email.setText("");
-        } else if(duplicateCheck()) {
-            System.out.println("Duplicate Exist");
         } else {
-            dbConnector dbc = new dbConnector();
-            int rowsAffected = dbc.insertData("INSERT INTO tbl_user(u_user, u_pass, u_email, u_contact, u_type, u_status)"
-                + "VALUES('" + name.getText() + "', '" + "', '" + email.getText() + "', '" + cont.getText() + "',"
-                + "'" + type.getSelectedItem() + "', 'Pending')");
+            try {
+                if (!userExists(name.getText())) {
+                    JOptionPane.showMessageDialog(null, "User does not exist! Update failed.");
+                } else {
+                    dbConnector dbc = new dbConnector();
+                    String sql = "UPDATE tbl_user SET "
+                            + "u_user = ?, "  // Allow updating username
+                            + "u_email = ?, "
+                            + "u_contact = ?, "
+                            + "u_type = ?, "
+                            + "u_status = ? " // Status can be 'Active' or 'Pending'
+                            + "WHERE u_user = ?";
 
-            if (rowsAffected > 0) {
-                JOptionPane.showMessageDialog(null, "Inserted Successfully!");
-                User_forms lf = new User_forms();
-                lf.setVisible(true);
-                this.dispose();
-            } else {
-                String errorMessage = "Connection Error!";
-                if (rowsAffected == 0) {
-                    errorMessage = "Error inserting user. Likely a duplicate entry or other constraint violation.";
+                    PreparedStatement pstmt = dbc.getConnection().prepareStatement(sql);
+                    pstmt.setString(1, name.getText());  
+                    pstmt.setString(2, email.getText());
+                    pstmt.setString(3, cont.getText());
+                    pstmt.setString(4, type.getSelectedItem().toString());
+                    pstmt.setString(5, status.getSelectedItem().toString());  // Fetch status from dropdown
+                    pstmt.setString(6, name.getText());  
+
+                    int rowsAffected = pstmt.executeUpdate();
+
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Updated Successfully!");
+                        User_forms lf = new User_forms();
+                        lf.setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error updating user. Please try again!", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
-                JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException ex) {
+                Logger.getLogger(editUserForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -294,7 +328,6 @@ public class editUserForm extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> type;
     // End of variables declaration//GEN-END:variables
 
-    private boolean duplicateCheck() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+
+   
 }

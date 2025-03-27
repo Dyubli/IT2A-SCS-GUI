@@ -177,13 +177,20 @@ public class login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Account is not active!");
                     return;
                 }
-
+                
+                 Session sess = Session.getInstance();
+                 sess.setUid(rs.getInt("u_id"));
+                 sess.setUser(rs.getString("u_user"));
+                 sess.setEmail(rs.getString("u_email"));
+                 sess.setContact(rs.getString("u_contact"));
+                 sess.setType(rs.getString("u_type"));
+                 sess.setStatus(rs.getString("u_status"));
                 JOptionPane.showMessageDialog(null, "Login Success!");
                 
                 u_user = rs.getString("u_user");
 
                 if ("Admin".equals(type)) {
-                    adminDashboard ad = new adminDashboard(u_user);
+                    adminDashboard ad = new adminDashboard();
                     ad.setVisible(true);
                 } else if ("User".equals(type)) {
                     userDashboard us = new userDashboard();
@@ -242,10 +249,8 @@ public class login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new login().setVisible(true);
         });
     }
 
