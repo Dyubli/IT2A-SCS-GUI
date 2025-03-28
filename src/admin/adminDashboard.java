@@ -126,6 +126,9 @@ public class adminDashboard extends javax.swing.JFrame {
 
         p_dashboard.setBackground(new java.awt.Color(0, 153, 204));
         p_dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_dashboardMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 p_dashboardMouseEntered(evt);
             }
@@ -155,20 +158,26 @@ public class adminDashboard extends javax.swing.JFrame {
         p_dashboard.setLayout(p_dashboardLayout);
         p_dashboardLayout.setHorizontalGroup(
             p_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_dashboardLayout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addComponent(dashboard)
+                .addGap(38, 38, 38))
         );
         p_dashboardLayout.setVerticalGroup(
             p_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_dashboardLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_dashboardLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         jPanel1.add(p_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 230, 60));
 
         p_users.setBackground(new java.awt.Color(0, 153, 204));
         p_users.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_usersMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 p_usersMouseEntered(evt);
             }
@@ -199,8 +208,9 @@ public class adminDashboard extends javax.swing.JFrame {
         p_usersLayout.setHorizontalGroup(
             p_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_usersLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(users, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
         );
         p_usersLayout.setVerticalGroup(
             p_usersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,9 +430,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_usersMouseEntered
 
     private void usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersMouseClicked
-        User_forms uf = new User_forms();
-        uf.setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_usersMouseClicked
 
     private void dashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseEntered
@@ -434,7 +442,7 @@ public class adminDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboardMouseExited
 
     private void dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardMouseClicked
-        this.setVisible(true);
+        
     }//GEN-LAST:event_dashboardMouseClicked
 
     private void logs1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logs1MouseEntered
@@ -477,6 +485,17 @@ public class adminDashboard extends javax.swing.JFrame {
     private void p_settingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_settingsMouseExited
         p_settings.setBackground(navcolor);
     }//GEN-LAST:event_p_settingsMouseExited
+
+    private void p_usersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_usersMouseClicked
+         User_forms uf = new User_forms();
+        uf.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_p_usersMouseClicked
+
+    private void p_dashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_dashboardMouseClicked
+            this.setVisible(true);
+           
+    }//GEN-LAST:event_p_dashboardMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

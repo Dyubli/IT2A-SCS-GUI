@@ -5,8 +5,10 @@
  */
 package admin;
 
+import config.Session;
 import config.dbConnector;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JFrame;
@@ -146,8 +148,8 @@ public class User_forms extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 730, 500));
@@ -170,6 +172,9 @@ public class User_forms extends javax.swing.JFrame {
 
         p_add.setBackground(new java.awt.Color(0, 102, 153));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_addMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 p_addMouseEntered(evt);
             }
@@ -177,6 +182,7 @@ public class User_forms extends javax.swing.JFrame {
                 p_addMouseExited(evt);
             }
         });
+        p_add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -193,22 +199,7 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel2MouseExited(evt);
             }
         });
-
-        javax.swing.GroupLayout p_addLayout = new javax.swing.GroupLayout(p_add);
-        p_add.setLayout(p_addLayout);
-        p_addLayout.setHorizontalGroup(
-            p_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_addLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        p_addLayout.setVerticalGroup(
-            p_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_addLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
+        p_add.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 126, 20));
 
         p_edit.setBackground(new java.awt.Color(0, 102, 153));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,8 +235,9 @@ public class User_forms extends javax.swing.JFrame {
         p_editLayout.setHorizontalGroup(
             p_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(p_editLayout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         p_editLayout.setVerticalGroup(
             p_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,6 +249,9 @@ public class User_forms extends javax.swing.JFrame {
 
         p_delete.setBackground(new java.awt.Color(0, 102, 153));
         p_delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_deleteMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 p_deleteMouseEntered(evt);
             }
@@ -282,50 +277,49 @@ public class User_forms extends javax.swing.JFrame {
         p_delete.setLayout(p_deleteLayout);
         p_deleteLayout.setHorizontalGroup(
             p_deleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_deleteLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(p_deleteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         p_deleteLayout.setVerticalGroup(
             p_deleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_deleteLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_deleteLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(p_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(back)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(p_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(p_edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(p_edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(144, Short.MAX_VALUE)
+                .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p_edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(p_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131)
+                .addGap(142, 142, 142)
                 .addComponent(back)
                 .addContainerGap())
         );
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 500));
 
         pack();
         setLocationRelativeTo(null);
@@ -347,9 +341,7 @@ public class User_forms extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        createUserForm user = new createUserForm();
-        user.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
@@ -377,7 +369,20 @@ public class User_forms extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-       int rowindex = table_user.getSelectedRow();
+       
+       
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
+        p_add.setBackground(hovercolor);
+    }//GEN-LAST:event_p_addMouseEntered
+
+    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
+        p_add.setBackground(navcolor);
+    }//GEN-LAST:event_p_addMouseExited
+
+    private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
+        int rowindex = table_user.getSelectedRow();
         if(rowindex < 0){
             JOptionPane.showMessageDialog(null, "Please Select a Field");
         }else {
@@ -391,19 +396,6 @@ public class User_forms extends javax.swing.JFrame {
             cf.setVisible(true);
             this.dispose();
         }
-       
-    }//GEN-LAST:event_jLabel5MouseClicked
-
-    private void p_addMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseEntered
-        p_add.setBackground(hovercolor);
-    }//GEN-LAST:event_p_addMouseEntered
-
-    private void p_addMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseExited
-        p_add.setBackground(navcolor);
-    }//GEN-LAST:event_p_addMouseExited
-
-    private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
-
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
@@ -421,6 +413,35 @@ public class User_forms extends javax.swing.JFrame {
     private void p_deleteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseExited
         p_delete.setBackground(navcolor);
     }//GEN-LAST:event_p_deleteMouseExited
+
+    private void p_addMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_addMouseClicked
+        createUserForm user = new createUserForm();
+        user.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_p_addMouseClicked
+
+    private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
+        int selectedRow = table_user.getSelectedRow();
+    
+    if (selectedRow == -1) {
+        JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        return;
+    }
+
+    int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this user?", "Confirm Deletion",JOptionPane.YES_NO_OPTION);
+    
+    if (confirm == JOptionPane.YES_OPTION) {
+        int userId = (int) table_user.getValueAt(selectedRow, 0); 
+        
+        try {
+            dbConnector db = new dbConnector();
+            db.deleteData("DELETE FROM tbl_user WHERE u_id = " + userId);
+            displayData();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error deleting user: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    }//GEN-LAST:event_p_deleteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -473,4 +494,6 @@ public class User_forms extends javax.swing.JFrame {
     private javax.swing.JTable table_user;
     private javax.swing.JTable tableuser;
     // End of variables declaration//GEN-END:variables
+
+   
 }

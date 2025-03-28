@@ -1,5 +1,7 @@
 
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -59,7 +61,7 @@ public class register extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         email = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        pass = new javax.swing.JPasswordField();
+        ps = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         cont = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -111,12 +113,12 @@ public class register extends javax.swing.JFrame {
         jLabel8.setText("Username");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 100, 40));
 
-        pass.addActionListener(new java.awt.event.ActionListener() {
+        ps.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passActionPerformed(evt);
+                psActionPerformed(evt);
             }
         });
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 210, 30));
+        jPanel1.add(ps, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("User type");
@@ -203,9 +205,9 @@ public class register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+    private void psActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passActionPerformed
+    }//GEN-LAST:event_psActionPerformed
 
     private void contActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contActionPerformed
         // TODO add your handling code here:
@@ -224,11 +226,11 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_typeItemStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(user.getText().isEmpty() || pass.getText().isEmpty() || email.getText().isEmpty() || cont.getText().isEmpty()) {
+         if(user.getText().isEmpty() || ps.getText().isEmpty() || email.getText().isEmpty() || cont.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "All Fields are required!");
-        } else if(pass.getText().length() < 8) {
+        } else if(ps.getText().length() < 8) {
             JOptionPane.showMessageDialog(null, "Password should have at least 8 characters.!");
-             pass.setText("");
+             ps.setText("");
         } else if(!cont.getText().matches("\\d+")) {  // Validate numeric contact number
             JOptionPane.showMessageDialog(null, "Contact number should contain only numbers!");
             cont.setText("");
@@ -239,8 +241,11 @@ public class register extends javax.swing.JFrame {
             System.out.println("Duplicate Exist");
         } else {
             dbConnector dbc = new dbConnector();
+            try{
+            String pass = passwordHasher.hashPassword(ps.getText());
+            
             int rowsAffected = dbc.insertData("INSERT INTO tbl_user(u_user, u_pass, u_email, u_contact, u_type, u_status)"
-                + "VALUES('" + user.getText() + "', '" + pass.getText() + "', '" + email.getText() + "', '" + cont.getText() + "',"
+                + "VALUES('" + user.getText() + "', '" + pass + "', '" + email.getText() + "', '" + cont.getText() + "',"
                 + "'" + type.getSelectedItem() + "', 'Pending')");
 
         if (rowsAffected > 0) {
@@ -254,8 +259,11 @@ public class register extends javax.swing.JFrame {
             errorMessage = "Error inserting user. Likely a duplicate entry or other constraint violation.";
         }
         JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
+                }
+            }catch(NoSuchAlgorithmException ex){
+                System.out.println(""+ex);
+            }
+         }
        
         
         
@@ -328,7 +336,7 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField pass;
+    private javax.swing.JPasswordField ps;
     private javax.swing.JComboBox<String> type;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables

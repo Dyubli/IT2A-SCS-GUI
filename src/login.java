@@ -2,6 +2,8 @@
 import admin.adminDashboard;
 import config.Session;
 import config.dbConnector;
+import config.passwordHasher;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,9 +15,6 @@ import user.userDashboard;
 
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SCS
-     */
     public login() {
         initComponents();
     }
@@ -26,34 +25,41 @@ public class login extends javax.swing.JFrame {
     
      public static boolean loginAcc(String username, String password){
         dbConnector connector = new dbConnector();  
-        
+    
         try{
-            String query = "SELECT * FROM tbl_user  WHERE u_user = '" + username + "' AND u_pass = '" + password + "'";
+            String query = "SELECT * FROM tbl_user  WHERE u_user = '" + username+ "";
             ResultSet resultSet = connector.getData(query);   
              if(resultSet.next()){
-             status = resultSet.getString("u_status");
-             type = resultSet.getString("u_type");
-             
-             Session sess = Session.getInstance();
-             sess.setUid(resultSet.getInt("u_id"));
-             sess.setUser(resultSet.getString("u_user"));
-             sess.setEmail(resultSet.getString("u_email"));
-             sess.setContact(resultSet.getString("u_contact"));
-             sess.setType(resultSet.getString("u_type"));
-             sess.setStatus(resultSet.getString("u_status"));
-                 System.out.println(""+sess.getUid());
-                return true;
-            }else{
-              return false;
-      } 
-            
-        }catch (SQLException ex) {
+                 
+                    String hashedPass =  resultSet.getString("u_pass");
+                    String rehashedPass = passwordHasher.hashPassword(password); 
+                    System.out.println(""+hashedPass);
+                    System.out.println(""+rehashedPass);
+                    
+                    if(hashedPass.equals(rehashedPass)){
+                        status = resultSet.getString("u_status");
+                        type = resultSet.getString("u_type");
+                       Session sess = Session.getInstance();
+                        sess.setUid(resultSet.getInt("u_id"));
+                        sess.setUser(resultSet.getString("u_user"));
+                        sess.setEmail(resultSet.getString("u_email"));
+                        sess.setContact(resultSet.getString("u_contact"));
+                        sess.setType(resultSet.getString("u_type"));
+                        sess.setStatus(resultSet.getString("u_status"));
+                        return true;
+                    
+                     }else{
+                        return false;
+                        }
+                }else{
+                   return false;
+                }
+            }catch (SQLException | NoSuchAlgorithmException ex) {
             return false;
-        }
+                }
 
-    }
     
-
+     }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,6 +187,7 @@ public class login extends javax.swing.JFrame {
                  Session sess = Session.getInstance();
                  sess.setUid(rs.getInt("u_id"));
                  sess.setUser(rs.getString("u_user"));
+                 sess.setUser(rs.getString("u_pass"));
                  sess.setEmail(rs.getString("u_email"));
                  sess.setContact(rs.getString("u_contact"));
                  sess.setType(rs.getString("u_type"));
@@ -270,4 +277,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField pass;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
+
 }
