@@ -162,57 +162,61 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-         String u_user = user.getText();
-        String u_pass = new String(pass.getPassword());     
-
-        dbConnector db = new dbConnector();
-        String sql = "SELECT * FROM tbl_user WHERE u_user = ? AND u_pass = ?";
-
-        try (Connection conn = db.getConnection();
-             PreparedStatement pst = conn.prepareStatement(sql)) {
-
-            pst.setString(1, u_user);
-            pst.setString(2, u_pass);
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                String status = rs.getString("u_status"); 
-                String type = rs.getString("u_type");
-
-                if (!"Active".equals(status)) {
-                    JOptionPane.showMessageDialog(null, "Account is not active!");
-                    return;
-                }
+   
+        try {                                            
+            String u_user = user.getText();
+            String u_pass = new String(pass.getPassword());
+            String hashedPass = passwordHasher.hashPassword(u_pass);
+            dbConnector db = new dbConnector();
+            String sql = "SELECT * FROM tbl_user WHERE u_user = ? AND u_pass = ?";
+            
+            try (Connection conn = db.getConnection();
+                    PreparedStatement pst = conn.prepareStatement(sql)) {
                 
-                 Session sess = Session.getInstance();
-                 sess.setUid(rs.getInt("u_id"));
-                 sess.setUser(rs.getString("u_user"));
-                 sess.setUser(rs.getString("u_pass"));
-                 sess.setEmail(rs.getString("u_email"));
-                 sess.setContact(rs.getString("u_contact"));
-                 sess.setType(rs.getString("u_type"));
-                 sess.setStatus(rs.getString("u_status"));
-                JOptionPane.showMessageDialog(null, "Login Success!");
+                pst.setString(1, u_user);
+                pst.setString(2, hashedPass);
+                ResultSet rs = pst.executeQuery();
                 
-                u_user = rs.getString("u_user");
-
-                if ("Admin".equals(type)) {
-                    adminDashboard ad = new adminDashboard();
-                    ad.setVisible(true);
-                } else if ("User".equals(type)) {
-                    userDashboard us = new userDashboard();
-                    us.setVisible(true);
+                if (rs.next()) {
+                    String status = rs.getString("u_status");
+                    String type = rs.getString("u_type");
+                    
+                    if (!"Active".equals(status)) {
+                        JOptionPane.showMessageDialog(null, "Account is not active!");
+                        return;
+                    }
+                    
+                    Session sess = Session.getInstance();
+                    sess.setUid(rs.getInt("u_id"));
+                    sess.setUser(rs.getString("u_user"));
+                    sess.setEmail(rs.getString("u_email"));
+                    sess.setContact(rs.getString("u_contact"));
+                    sess.setType(rs.getString("u_type"));
+                    sess.setStatus(rs.getString("u_status"));
+                    JOptionPane.showMessageDialog(null, "Login Success!");
+                    
+                    u_user = rs.getString("u_user");
+                    
+                    if ("Admin".equals(type)) {
+                        adminDashboard ad = new adminDashboard();
+                        ad.setVisible(true);
+                    } else if ("User".equals(type)) {
+                        userDashboard us = new userDashboard();
+                        us.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Account type not recognized!");
+                    }
+                    this.dispose(); // Close the login window
                 } else {
-                    JOptionPane.showMessageDialog(null, "Account type not recognized!");
+                    JOptionPane.showMessageDialog(null, "Login Failed! Invalid credentials.");
                 }
-                this.dispose(); // Close the login window
-            } else {
-                JOptionPane.showMessageDialog(null, "Login Failed! Invalid credentials.");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
-        }                                           
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }                               
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void donthaveaccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccountMouseClicked
