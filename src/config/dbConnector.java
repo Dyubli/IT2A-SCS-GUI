@@ -71,6 +71,26 @@ public class dbConnector {
                 System.out.println("Connection Error: "+ex);
             }
         }
+        
+                    // Function to log user activity
+        public void logActivity(int userId, String action) {
+            String query = "INSERT INTO tbl_logs (log_uid, log_action) VALUES (?, ?)";
+            try (PreparedStatement pstmt = connect.prepareStatement(query)) {
+                pstmt.setInt(1, userId);
+                pstmt.setString(2, action);
+                pstmt.executeUpdate();
+                System.out.println("Activity logged: " + action);
+            } catch (SQLException e) {
+                System.out.println("Error logging activity: " + e.getMessage());
+            }
+        }
+        
+        public ResultSet getLogs() throws SQLException {
+            String query = "SELECT l.log_id, u.u_user, l.log_action, l.log_timestamp FROM tbl_logs l " +
+                           "JOIN tbl_user u ON l.log_uid = u.u_id " +
+                           "ORDER BY l.log_timestamp DESC";
+            return getData(query);
+        }
 
     public Connection getConnection() {
         return connect;

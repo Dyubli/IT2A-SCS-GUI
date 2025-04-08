@@ -5,15 +5,13 @@
  */
 package admin;
 
+import Start.login;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -107,9 +105,15 @@ public class User_forms extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(153, 0, 0));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         table_user.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,37 +128,17 @@ public class User_forms extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(table_user);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 700, 370));
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("USER FORMS");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 200, 56));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 740, 500));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 720, 500));
 
         jPanel5.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         back.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         back.setText("BACK");
@@ -169,6 +153,7 @@ public class User_forms extends javax.swing.JFrame {
                 backMouseExited(evt);
             }
         });
+        jPanel5.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 467, -1, -1));
 
         p_add.setBackground(new java.awt.Color(0, 102, 153));
         p_add.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,7 +169,7 @@ public class User_forms extends javax.swing.JFrame {
         });
         p_add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ADD USER");
@@ -201,6 +186,8 @@ public class User_forms extends javax.swing.JFrame {
         });
         p_add.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 126, 20));
 
+        jPanel5.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 144, 190, 55));
+
         p_edit.setBackground(new java.awt.Color(0, 102, 153));
         p_edit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -213,8 +200,9 @@ public class User_forms extends javax.swing.JFrame {
                 p_editMouseExited(evt);
             }
         });
+        p_edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("UPDATE USER");
@@ -229,23 +217,9 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
+        p_edit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 20));
 
-        javax.swing.GroupLayout p_editLayout = new javax.swing.GroupLayout(p_edit);
-        p_edit.setLayout(p_editLayout);
-        p_editLayout.setHorizontalGroup(
-            p_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_editLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        p_editLayout.setVerticalGroup(
-            p_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_editLayout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        jPanel5.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 190, 60));
 
         p_delete.setBackground(new java.awt.Color(0, 102, 153));
         p_delete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -259,8 +233,9 @@ public class User_forms extends javax.swing.JFrame {
                 p_deleteMouseExited(evt);
             }
         });
+        p_delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("DELETE USER");
@@ -272,54 +247,11 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
+        p_delete.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 20));
 
-        javax.swing.GroupLayout p_deleteLayout = new javax.swing.GroupLayout(p_delete);
-        p_delete.setLayout(p_deleteLayout);
-        p_deleteLayout.setHorizontalGroup(
-            p_deleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(p_deleteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        p_deleteLayout.setVerticalGroup(
-            p_deleteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, p_deleteLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+        jPanel5.add(p_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 269, 190, 60));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(back)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(p_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(p_edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(p_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
-                .addComponent(p_add, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p_edit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(p_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(142, 142, 142)
-                .addComponent(back)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 500));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
 
         pack();
         setLocationRelativeTo(null);
@@ -334,9 +266,8 @@ public class User_forms extends javax.swing.JFrame {
     }//GEN-LAST:event_backMouseExited
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-
-        adminDashboard ads = new adminDashboard();
-        ads.setVisible(true);
+        adminDashboard ad = new adminDashboard();
+        ad.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backMouseClicked
 
@@ -382,19 +313,43 @@ public class User_forms extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseExited
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
-        int rowindex = table_user.getSelectedRow();
-        if(rowindex < 0){
-            JOptionPane.showMessageDialog(null, "Please Select a Field");
-        }else {
-            TableModel model = table_user.getModel();
-            editUserForm cf = new editUserForm();
-            cf.name.setText(""+model.getValueAt(rowindex, 1));
-            cf.email.setText(""+model.getValueAt(rowindex, 2));
-            cf.cont.setText(""+model.getValueAt(rowindex, 3));
-            cf.type.setSelectedItem(""+model.getValueAt(rowindex, 4));
-            cf.status.setSelectedItem(""+model.getValueAt(rowindex, 5));
-            cf.setVisible(true);
-            this.dispose();
+        int rowIndex = table_user.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null,"Please Select an Item!");
+        }else{
+            try{
+
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = table_user.getModel();
+                ResultSet rst = dbc.getData("SELECT * FROM tbl_user WHERE u_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+                if(rst.next()){
+                    editUserForm edf = new editUserForm();
+                    edf.uid.setText(""+rst.getInt("u_id"));
+                    edf.email.setText(""+rst.getString("u_email"));
+                    edf.un.setText(""+rst.getString("u_user"));
+                    edf.cont.setText(""+rst.getString("u_contact"));
+                    edf.pass.setText(""+rst.getString("u_pass"));
+                    edf.type.setSelectedItem(""+rst.getString("u_type"));
+                    edf.status.setSelectedItem(""+rst.getString("u_status"));
+                    edf.image.setIcon(edf.ResizeImage(rst.getString("u_image"), null, edf.image));
+                    edf.oldpath = rst.getString("u_image");
+                    edf.path = rst.getString("u_image");
+                    edf.destination = rst.getString("u_image");
+                    
+                if(rst.getString("u_image").isEmpty()){
+                    edf.select.setEnabled(true);
+                    edf.rm.setEnabled(false);
+                }else{
+                    edf.select.setEnabled(false);
+                    edf.rm.setEnabled(true);
+                }
+                    edf.setVisible(true);
+                    this.dispose();
+
+                }
+            }catch(SQLException ex){
+                System.out.println(""+ex);
+            }
         }
     }//GEN-LAST:event_p_editMouseClicked
 
@@ -421,27 +376,33 @@ public class User_forms extends javax.swing.JFrame {
     }//GEN-LAST:event_p_addMouseClicked
 
     private void p_deleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_deleteMouseClicked
-        int selectedRow = table_user.getSelectedRow();
-    
-    if (selectedRow == -1) {
-        JOptionPane.showMessageDialog(null, "Please Select an Item!");
-        return;
-    }
-
-    int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this user?", "Confirm Deletion",JOptionPane.YES_NO_OPTION);
-    
-    if (confirm == JOptionPane.YES_OPTION) {
-        int userId = (int) table_user.getValueAt(selectedRow, 0); 
-        
-        try {
-            dbConnector db = new dbConnector();
-            db.deleteData("DELETE FROM tbl_user WHERE u_id = " + userId);
-            displayData();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error deleting user: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        int rowindex = table_user.getSelectedRow();
+        if(rowindex < 0){
+            JOptionPane.showMessageDialog(null, "Please Select an item!");
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                dbConnector dbc = new dbConnector();
+                TableModel model = table_user.getModel();
+                String id = model.getValueAt(rowindex, 0).toString();
+                dbc.updateData("DELETE FROM tbl_user WHERE u_id = '" + id + "'");
+                Session sess = Session.getInstance();
+                dbc.logActivity(sess.getUid(), "Deleted user ID: " + id);
+                displayData();
+                JOptionPane.showMessageDialog(null, "User deleted successfully!");
+            }
         }
-    }
     }//GEN-LAST:event_p_deleteMouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       Session sess = Session.getInstance();
+       if(sess.getUid() == 0){
+        JOptionPane.showMessageDialog(null, "No account login, Go to login page");
+        login lf = new login();
+        lf.setVisible(true);
+        this.dispose();
+       }
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
