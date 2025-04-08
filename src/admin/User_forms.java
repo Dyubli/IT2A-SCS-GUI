@@ -16,7 +16,7 @@ import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
- *
+ 
  * @author russe
  */
 public class User_forms extends javax.swing.JFrame {
