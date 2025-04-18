@@ -98,10 +98,11 @@ public class userDetails extends javax.swing.JFrame {
         changepass = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         uid = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         con = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -118,31 +119,38 @@ public class userDetails extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(617, 488));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iddisplay.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        iddisplay.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         iddisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iddisplay.setText("ID:");
         jPanel1.add(iddisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 30, 30));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Email: ");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 73, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Username: ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 73, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 80, -1));
         jPanel1.add(em, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 276, 28));
         jPanel1.add(un, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 276, 28));
 
-        changepass.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        changepass.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         changepass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         changepass.setText("Change password? Click here");
         changepass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 changepassMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                changepassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                changepassMouseExited(evt);
+            }
         });
-        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 190, 29));
+        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 210, 29));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Update");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,17 +162,7 @@ public class userDetails extends javax.swing.JFrame {
         uid.setEnabled(false);
         jPanel1.add(uid, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 280, 30));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ACCOUNT DETAILS");
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
-            }
-        });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 43));
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("BACK");
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -174,10 +172,25 @@ public class userDetails extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 80, 26));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Contact No.");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 73, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 90, -1));
         jPanel1.add(con, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 276, 28));
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 204));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("ACCOUNT DETAILS");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 210, 43));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 450));
 
@@ -196,49 +209,57 @@ public class userDetails extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_formWindowActivated
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        userDashboard ud = new userDashboard();
-        ud.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void changepassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseClicked
         changePass cp = new changePass();
         cp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_changepassMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void changepassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseEntered
+        changepass.setForeground(new java.awt.Color(102, 102, 102));
+    }//GEN-LAST:event_changepassMouseEntered
 
-    }//GEN-LAST:event_jLabel4MouseClicked
+    private void changepassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changepassMouseExited
+        changepass.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_changepassMouseExited
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-    String email1 = em.getText();
-    String username1 = un.getText();
-    String phone = con.getText();
+        String email1 = em.getText();
+        String username1 = un.getText();
+        String phone = con.getText();
 
-    if (username1.isEmpty() || email1.isEmpty() || phone.isEmpty()){
-        JOptionPane.showMessageDialog(this, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
-    }else if(!em.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-         JOptionPane.showMessageDialog(null, "Please enter a valid email address!");
-         em.setText("");
-    } else if(!con.getText().matches("\\d+")) {  // Validate numeric contact number
+        if (username1.isEmpty() || email1.isEmpty() || phone.isEmpty()){
+            JOptionPane.showMessageDialog(this, "All fields are required!", "Error", JOptionPane.ERROR_MESSAGE);
+        }else if(!em.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid email address!");
+            em.setText("");
+        } else if(!con.getText().matches("\\d+")) {  // Validate numeric contact number
             JOptionPane.showMessageDialog(null, "Contact number should contain only numbers!");
             con.setText("");
-    }else if(updateCheck()){
-        System.out.println("Duplicate Exist");
-        em.setText("");
-    }else{
-        dbConnector db = new dbConnector();
+        }else if(updateCheck()){
+            System.out.println("Duplicate Exist");
+            em.setText("");
+        }else{
+            dbConnector db = new dbConnector();
             db.updateData("UPDATE tbl_user SET u_email = '"+em.getText()+"', u_user = '"+un.getText()+"', u_contact = '"+con.getText()+"' WHERE u_id = '"+uid.getText()+"'");
             JOptionPane.showMessageDialog(this, "Update Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
             login lf = new login();
             lf.setVisible(true);
             this.dispose();
-        
-    }
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        userDashboard ud = new userDashboard();
+        ud.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -297,11 +318,12 @@ public class userDetails extends javax.swing.JFrame {
     private javax.swing.JLabel iddisplay;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField uid;
     private javax.swing.JTextField un;
     // End of variables declaration//GEN-END:variables

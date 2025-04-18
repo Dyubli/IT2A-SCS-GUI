@@ -240,9 +240,7 @@ public class register extends javax.swing.JFrame {
             cont.setText("");
         } else if(!email.getText().matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) { // Validate proper email format
              JOptionPane.showMessageDialog(null, "Please enter a valid email address!");
-             email.setText("");
-        } else if(duplicateCheck()) {             
-            System.out.println("Duplicate Exist");
+             email.setText("");            
         } else {
             dbConnector dbc = new dbConnector();
             try{

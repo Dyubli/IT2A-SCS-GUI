@@ -65,8 +65,7 @@ public class login extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         user = new javax.swing.JTextField();
         pass = new javax.swing.JPasswordField();
-        donthaveaccount1 = new javax.swing.JLabel();
-        donthaveaccount2 = new javax.swing.JLabel();
+        forgotpass = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -95,14 +94,14 @@ public class login extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Enter Password");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 220, 50));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, 220, 50));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setText("Enter Username");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 220, 60));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 220, 40));
 
         donthaveaccount.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        donthaveaccount.setText("click here to Register");
+        donthaveaccount.setText("Don't have an account yet? click here to Register");
         donthaveaccount.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 donthaveaccountMouseClicked(evt);
@@ -114,7 +113,7 @@ public class login extends javax.swing.JFrame {
                 donthaveaccountMouseExited(evt);
             }
         });
-        jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 440, 150, 20));
+        jPanel1.add(donthaveaccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 440, 310, 20));
 
         loginButton.setBackground(new java.awt.Color(102, 204, 255));
         loginButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -124,22 +123,24 @@ public class login extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 150, 40));
-        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 400, 40));
-        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, 400, 40));
+        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 350, 110, 40));
+        jPanel1.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 190, 400, 40));
+        jPanel1.add(pass, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, 400, 40));
 
-        donthaveaccount1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        donthaveaccount1.setText("Forgot Password? click here");
-        donthaveaccount1.addMouseListener(new java.awt.event.MouseAdapter() {
+        forgotpass.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        forgotpass.setText("Forgot Password?");
+        forgotpass.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                donthaveaccount1MouseClicked(evt);
+                forgotpassMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                forgotpassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                forgotpassMouseExited(evt);
             }
         });
-        jPanel1.add(donthaveaccount1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 190, 20));
-
-        donthaveaccount2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        donthaveaccount2.setText("Don't have an account yet?   ");
-        jPanel1.add(donthaveaccount2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 190, 20));
+        jPanel1.add(forgotpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,7 +152,7 @@ public class login extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -200,11 +201,19 @@ public class login extends javax.swing.JFrame {
         donthaveaccount.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_donthaveaccountMouseExited
 
-    private void donthaveaccount1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_donthaveaccount1MouseClicked
+    private void forgotpassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpassMouseClicked
         emailSearch es = new emailSearch();
         es.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_donthaveaccount1MouseClicked
+    }//GEN-LAST:event_forgotpassMouseClicked
+
+    private void forgotpassMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpassMouseEntered
+        forgotpass.setForeground(new java.awt.Color(102, 102, 102));
+    }//GEN-LAST:event_forgotpassMouseEntered
+
+    private void forgotpassMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgotpassMouseExited
+        forgotpass.setForeground(new java.awt.Color(0, 0, 0));
+    }//GEN-LAST:event_forgotpassMouseExited
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -245,8 +254,7 @@ public class login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel donthaveaccount;
-    private javax.swing.JLabel donthaveaccount1;
-    private javax.swing.JLabel donthaveaccount2;
+    private javax.swing.JLabel forgotpass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

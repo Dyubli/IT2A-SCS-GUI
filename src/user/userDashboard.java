@@ -36,14 +36,12 @@ public class userDashboard extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        user = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         acc_name = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         logout = new javax.swing.JLabel();
         p_dashboard = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("LOGOUT");
@@ -57,10 +55,6 @@ public class userDashboard extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        user.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        user.setText("USER");
-        jPanel3.add(user, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, 35));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,7 +99,7 @@ public class userDashboard extends javax.swing.JFrame {
         dashboard.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         dashboard.setForeground(new java.awt.Color(255, 255, 255));
         dashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard.setText("SETTINGS");
+        dashboard.setText("ACCOUNT");
         dashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dashboardMouseClicked(evt);
@@ -117,15 +111,11 @@ public class userDashboard extends javax.swing.JFrame {
                 dashboardMouseExited(evt);
             }
         });
-        p_dashboard.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 22, 150, 19));
+        p_dashboard.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 19));
 
-        jPanel1.add(p_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 230, 60));
+        jPanel1.add(p_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 230, 60));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel3.setText("HI");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, 35));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,14 +238,12 @@ public class userDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel p_dashboard;
-    private javax.swing.JLabel user;
     // End of variables declaration//GEN-END:variables
 
     

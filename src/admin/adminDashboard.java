@@ -176,6 +176,9 @@ public class adminDashboard extends javax.swing.JFrame {
 
         p_settings.setBackground(new java.awt.Color(0, 153, 204));
         p_settings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                p_settingsMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 p_settingsMouseEntered(evt);
             }
@@ -188,8 +191,8 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SETTINGS");
-        p_settings.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 19, 230, 21));
+        jLabel4.setText("ACCOUNT");
+        p_settings.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 230, 21));
 
         jPanel2.add(p_settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 230, 60));
 
@@ -238,10 +241,10 @@ public class adminDashboard extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(table_user);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 660, 230));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 660, 290));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 190, 120));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 190, 120));
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -256,7 +259,7 @@ public class adminDashboard extends javax.swing.JFrame {
             .addGap(0, 120, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         jPanel7.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -271,7 +274,7 @@ public class adminDashboard extends javax.swing.JFrame {
             .addGap(0, 120, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("ADMIN DASHBOARD");
@@ -395,6 +398,12 @@ public class adminDashboard extends javax.swing.JFrame {
         lf.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_p_logsMouseClicked
+
+    private void p_settingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_settingsMouseClicked
+        adminDetails admdetails = new adminDetails();
+        admdetails.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_p_settingsMouseClicked
 
     /**
      * @param args the command line arguments

@@ -128,12 +128,12 @@ public class User_forms extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(table_user);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 700, 370));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 700, 410));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("USER FORMS");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 200, 56));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 250, 56));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 720, 500));
 
@@ -169,7 +169,7 @@ public class User_forms extends javax.swing.JFrame {
         });
         p_add.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ADD USER");
@@ -184,7 +184,7 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel2MouseExited(evt);
             }
         });
-        p_add.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 126, 20));
+        p_add.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 126, -1));
 
         jPanel5.add(p_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 144, 190, 55));
 
@@ -202,7 +202,7 @@ public class User_forms extends javax.swing.JFrame {
         });
         p_edit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("UPDATE USER");
@@ -217,7 +217,7 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
-        p_edit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 20));
+        p_edit.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
 
         jPanel5.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 190, 60));
 
@@ -235,7 +235,7 @@ public class User_forms extends javax.swing.JFrame {
         });
         p_delete.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("DELETE USER");
@@ -247,7 +247,7 @@ public class User_forms extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        p_delete.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 20));
+        p_delete.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
 
         jPanel5.add(p_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 269, 190, 60));
 
