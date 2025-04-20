@@ -42,6 +42,8 @@ public class userDashboard extends javax.swing.JFrame {
         logout = new javax.swing.JLabel();
         p_dashboard = new javax.swing.JPanel();
         dashboard = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("LOGOUT");
@@ -64,7 +66,7 @@ public class userDashboard extends javax.swing.JFrame {
         jPanel1.add(acc_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 230, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/user_3161848.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, 70));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 70, 70));
 
         logout.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         logout.setText("LOGOUT");
@@ -111,17 +113,27 @@ public class userDashboard extends javax.swing.JFrame {
                 dashboardMouseExited(evt);
             }
         });
-        p_dashboard.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 120, 19));
+        p_dashboard.add(dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 19));
 
-        jPanel1.add(p_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 230, 60));
+        jPanel1.add(p_dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 60));
 
-        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
+        jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
+
+        jPanel2.setBackground(new java.awt.Color(0, 102, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("SCHOOL CLINIC SYSTEM");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 460, 30));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 720, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,9 +250,11 @@ public class userDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
     private javax.swing.JLabel dashboard;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel p_dashboard;
