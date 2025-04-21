@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2025 at 05:04 PM
+-- Generation Time: Apr 21, 2025 at 05:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,46 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (39, 13, 'User Login: Dyubli', '2025-04-18 14:59:11'),
 (40, 13, 'User Login: Dyubli', '2025-04-18 15:00:16'),
 (41, 13, 'User Login: Dyubli', '2025-04-18 15:02:06'),
-(42, 13, 'User Login: Dyubli', '2025-04-18 15:03:07');
+(42, 13, 'User Login: Dyubli', '2025-04-18 15:03:07'),
+(43, 13, 'User Login: Dyubli', '2025-04-21 11:07:21'),
+(44, 13, 'User Login: Dyubli', '2025-04-21 11:36:10'),
+(45, 13, 'User Login: Dyubli', '2025-04-21 13:57:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_meds`
+--
+
+CREATE TABLE `tbl_meds` (
+  `m_id` int(11) NOT NULL,
+  `m_name` int(11) NOT NULL,
+  `stocks` int(11) NOT NULL,
+  `mg` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_patients`
+--
+
+CREATE TABLE `tbl_patients` (
+  `patient_id` int(11) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_patients`
+--
+
+INSERT INTO `tbl_patients` (`patient_id`, `fname`, `lname`, `email`, `contact`, `reason`, `date`) VALUES
+(1, 'Diovely', 'campo', 'diovely@gmail.com', '09282438841', 'stomachache', '12/12/12');
 
 -- --------------------------------------------------------
 
@@ -123,6 +162,18 @@ ALTER TABLE `tbl_logs`
   ADD KEY `log_uid` (`log_uid`);
 
 --
+-- Indexes for table `tbl_meds`
+--
+ALTER TABLE `tbl_meds`
+  ADD PRIMARY KEY (`m_id`);
+
+--
+-- Indexes for table `tbl_patients`
+--
+ALTER TABLE `tbl_patients`
+  ADD PRIMARY KEY (`patient_id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -136,7 +187,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+
+--
+-- AUTO_INCREMENT for table `tbl_patients`
+--
+ALTER TABLE `tbl_patients`
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

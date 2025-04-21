@@ -92,8 +92,8 @@ public class addpatient extends javax.swing.JFrame {
         jPanel1.add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 170, 50));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setText("Patient Form ");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
+        jLabel3.setText("PATIENT FORM");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Contact Information");
@@ -106,8 +106,8 @@ public class addpatient extends javax.swing.JFrame {
         jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 170, 50));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Date");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+        jLabel6.setText("Date of Visit");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 80, -1));
         jPanel1.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 170, 50));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -136,6 +136,7 @@ public class addpatient extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 450));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -171,7 +172,7 @@ public class addpatient extends javax.swing.JFrame {
                 int result = pstmt.executeUpdate();
 
                 if (result == 1) {
-                    JOptionPane.showMessageDialog(null, "Patient added successfully");
+                    JOptionPane.showMessageDialog(null, "Added successfully");
                     // Optional: clear fields or redirect
                 } else {
                     JOptionPane.showMessageDialog(null, "Failed to add patient");
