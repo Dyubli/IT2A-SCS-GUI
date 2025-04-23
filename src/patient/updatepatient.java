@@ -72,9 +72,13 @@ public class updatepatient extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         date = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        reason = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        reason1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        meds1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,8 +101,8 @@ public class updatepatient extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Medicines provided");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jLabel4.setText("Email");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
         jPanel1.add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 170, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -108,8 +112,8 @@ public class updatepatient extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Consultations");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
-        jPanel1.add(reason, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 200, 80));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 200, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Cancel");
@@ -129,6 +133,16 @@ public class updatepatient extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 100, 30));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setText("Contact");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jPanel1.add(reason1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 200, 80));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Medicines");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        jPanel1.add(meds1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 200, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 420));
 
         pack();
@@ -138,7 +152,7 @@ public class updatepatient extends javax.swing.JFrame {
         dbConnector dbc = new dbConnector(); 
 
     if (fname.getText().isEmpty() || lname.getText().isEmpty() || email.getText().isEmpty() ||
-        contact.getText().isEmpty() || date.getText().isEmpty() || reason.getText().isEmpty()) {
+        contact.getText().isEmpty() || date.getText().isEmpty() || email.getText().isEmpty()) {
 
         JOptionPane.showMessageDialog(null, "All fields are required");
 
@@ -165,7 +179,7 @@ public class updatepatient extends javax.swing.JFrame {
             pstmt.setString(3, contact.getText());
             pstmt.setString(4, email.getText());
             pstmt.setString(5, date.getText());
-            pstmt.setString(6, reason.getText());
+            pstmt.setString(6, email.getText());
            
 
             int result = pstmt.executeUpdate();
@@ -229,6 +243,7 @@ public class updatepatient extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField contact;
     private javax.swing.JTextField date;
+    private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -236,10 +251,13 @@ public class updatepatient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lname;
-    private javax.swing.JTextField reason;
+    private javax.swing.JTextField meds1;
+    private javax.swing.JTextField reason1;
     // End of variables declaration//GEN-END:variables
 }

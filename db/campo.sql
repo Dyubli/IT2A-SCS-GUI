@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2025 at 05:38 PM
+-- Generation Time: Apr 23, 2025 at 10:48 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,7 +83,9 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (42, 13, 'User Login: Dyubli', '2025-04-18 15:03:07'),
 (43, 13, 'User Login: Dyubli', '2025-04-21 11:07:21'),
 (44, 13, 'User Login: Dyubli', '2025-04-21 11:36:10'),
-(45, 13, 'User Login: Dyubli', '2025-04-21 13:57:53');
+(45, 13, 'User Login: Dyubli', '2025-04-21 13:57:53'),
+(46, 13, 'User Login: Dyubli', '2025-04-23 07:50:27'),
+(53, 13, 'User Login: Dyubli', '2025-04-23 08:46:27');
 
 -- --------------------------------------------------------
 
@@ -113,13 +115,6 @@ CREATE TABLE `tbl_patients` (
   `reason` varchar(255) NOT NULL,
   `date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_patients`
---
-
-INSERT INTO `tbl_patients` (`patient_id`, `fname`, `lname`, `email`, `contact`, `reason`, `date`) VALUES
-(1, 'Diovely', 'campo', 'diovely@gmail.com', '09282438841', 'stomachache', '12/12/12');
 
 -- --------------------------------------------------------
 
@@ -187,13 +182,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

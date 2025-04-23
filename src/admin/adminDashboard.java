@@ -224,9 +224,9 @@ public class adminDashboard extends javax.swing.JFrame {
                 logs1MouseExited(evt);
             }
         });
-        p_logs.add(logs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 21, 230, 20));
+        p_logs.add(logs1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 70, 20));
 
-        jPanel2.add(p_logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, -1, 60));
+        jPanel2.add(p_logs, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 230, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
@@ -246,7 +246,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 660, 290));
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 190, 120));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 210, 120));
 
         jPanel5.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -283,7 +283,7 @@ public class adminDashboard extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +292,7 @@ public class adminDashboard extends javax.swing.JFrame {
                 .addGap(0, 88, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 220, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("ADMIN DASHBOARD");
