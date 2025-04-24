@@ -67,12 +67,12 @@ public class changePass extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Old Password: ");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 120, 32));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 120, 20));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("New Password:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 131, 30));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 131, 30));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("SAVE");
@@ -81,15 +81,15 @@ public class changePass extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, 30));
-        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 180, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 110, 30));
+        jPanel1.add(oldpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 200, 30));
 
         newpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newpassActionPerformed(evt);
             }
         });
-        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 180, 30));
+        jPanel1.add(newpass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 200, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -109,7 +109,7 @@ public class changePass extends javax.swing.JFrame {
                 changepassMouseClicked(evt);
             }
         });
-        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 240, 29));
+        jPanel1.add(changepass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 240, 29));
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,9 +122,9 @@ public class changePass extends javax.swing.JFrame {
                 jLabel7MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 210, 43));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 200, 43));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 60));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 

@@ -251,7 +251,7 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("NO. OF NURSES");
+        jLabel5.setText("NO. OF USERS");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
