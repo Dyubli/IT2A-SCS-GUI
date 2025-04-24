@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2025 at 12:41 PM
+-- Generation Time: Apr 24, 2025 at 02:31 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,28 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (39, 13, 'User Login: Dyubli', '2025-04-18 14:59:11'),
 (40, 13, 'User Login: Dyubli', '2025-04-18 15:00:16'),
 (41, 13, 'User Login: Dyubli', '2025-04-18 15:02:06'),
-(42, 13, 'User Login: Dyubli', '2025-04-18 15:03:07');
+(42, 13, 'User Login: Dyubli', '2025-04-18 15:03:07'),
+(43, 13, 'User Login: Dyubli', '2025-04-21 11:07:21'),
+(44, 13, 'User Login: Dyubli', '2025-04-21 11:36:10'),
+(45, 13, 'User Login: Dyubli', '2025-04-21 13:57:53'),
+(46, 13, 'User Login: Dyubli', '2025-04-23 07:50:27'),
+(53, 13, 'User Login: Dyubli', '2025-04-23 08:46:27'),
+(54, 13, 'User Login: Dyubli', '2025-04-24 10:55:05'),
+(55, 13, 'Updated a user: Dyubli', '2025-04-24 10:57:27'),
+(56, 13, 'User Login: Dyubli', '2025-04-24 12:12:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_meds`
+--
+
+CREATE TABLE `tbl_meds` (
+  `m_id` int(11) NOT NULL,
+  `m_name` int(11) NOT NULL,
+  `stocks` int(11) NOT NULL,
+  `mg` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -89,13 +110,13 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 --
 
 CREATE TABLE `tbl_patients` (
-  `id` int(255) NOT NULL,
+  `patient_id` int(11) NOT NULL,
   `fname` varchar(255) NOT NULL,
   `lname` varchar(255) NOT NULL,
-  `contact` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `reason` varchar(255) NOT NULL
+  `contact` varchar(255) NOT NULL,
+  `reason` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -124,8 +145,9 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`u_id`, `u_user`, `u_pass`, `u_email`, `u_contact`, `u_type`, `u_status`, `u_image`, `u_question`, `u_answer`) VALUES
 (11, 'Noya', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'noya@noya.com', '09280056394', 'Admin', 'Active', '', '', ''),
 (12, 'Campoy', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'campoy@campoy.com', '12345678902', 'User', 'Active', 'src/userImages/company_7716170.png', 'What is your fav color?', 'blue'),
-(13, 'Dyubli', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovely@gmail.com', '123123123123', 'Admin', 'Active', '', 'favorite food', 'chicken'),
-(14, 'markjoseph', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'markjoseph@gmail.com', '123123123123', 'User', 'Active', '', '', '');
+(13, 'Dyubli', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovely@gmail.com', '123123123123', 'Admin', 'Active', 'src/userImages/1.jpg', '', ''),
+(14, 'markjoseph', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'markjoseph@gmail.com', '123123123123', 'User', 'Active', '', '', ''),
+(15, 'Diovely', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovely@gmail.com', '0192019233902', 'User', 'Pending', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -139,10 +161,16 @@ ALTER TABLE `tbl_logs`
   ADD KEY `log_uid` (`log_uid`);
 
 --
+-- Indexes for table `tbl_meds`
+--
+ALTER TABLE `tbl_meds`
+  ADD PRIMARY KEY (`m_id`);
+
+--
 -- Indexes for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`patient_id`);
 
 --
 -- Indexes for table `tbl_user`
@@ -158,19 +186,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `u_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
