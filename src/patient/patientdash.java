@@ -1,6 +1,7 @@
 
 package patient;
 
+import admin.editUserForm;
 import config.Session;
 import config.dbConnector;
 import java.awt.Color;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 import user.userDashboard;
+
 
 public class patientdash extends javax.swing.JFrame {
 
@@ -23,7 +25,7 @@ public class patientdash extends javax.swing.JFrame {
       public void displayData() {
     try {
         dbConnector dbc = new dbConnector(); 
-        ResultSet rs = dbc.getData("SELECT patient_id, fname, lname, contact, date, reason FROM tbl_patients");
+        ResultSet rs = dbc.getData("SELECT * FROM tbl_patients");
         
         if (rs != null) {
             p_table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -240,6 +242,33 @@ public class patientdash extends javax.swing.JFrame {
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
 
+      int rowIndex = p_table.getSelectedRow();
+        if (rowIndex < 0) {
+             JOptionPane.showMessageDialog(null, "Please Select an Item!");
+        } else {
+             try {
+                 dbConnector dbc = new dbConnector();
+                    TableModel tbl = p_table.getModel();
+                    ResultSet rst = dbc.getData("SELECT * FROM tbl_patients WHERE patient_id = '" + tbl.getValueAt(rowIndex, 0) + "'");
+         if (rst.next()) {
+                updatepatient up = new updatepatient();
+                    up.fillForm(
+                rst.getString("patient_id"),
+                rst.getString("fname"),
+                rst.getString("lname"),
+                rst.getString("email"),
+                rst.getString("contact"),
+                rst.getString("reason"),
+                rst.getString("date")
+            );
+                 
+            up.setVisible(true);
+            this.dispose();
+        }
+    } catch (SQLException ex) {
+        System.out.println("" + ex);
+    }
+        }
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
