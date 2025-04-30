@@ -66,9 +66,9 @@ public class patientdash extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Patient Dashboard");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
         p_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,7 +80,7 @@ public class patientdash extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(p_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 640, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 640, 350));
 
         jPanel5.setBackground(new java.awt.Color(0, 102, 153));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -242,33 +242,6 @@ public class patientdash extends javax.swing.JFrame {
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
 
-      int rowIndex = p_table.getSelectedRow();
-        if (rowIndex < 0) {
-             JOptionPane.showMessageDialog(null, "Please Select an Item!");
-        } else {
-             try {
-                 dbConnector dbc = new dbConnector();
-                    TableModel tbl = p_table.getModel();
-                    ResultSet rst = dbc.getData("SELECT * FROM tbl_patients WHERE patient_id = '" + tbl.getValueAt(rowIndex, 0) + "'");
-         if (rst.next()) {
-                updatepatient up = new updatepatient();
-                    up.fillForm(
-                rst.getString("patient_id"),
-                rst.getString("fname"),
-                rst.getString("lname"),
-                rst.getString("email"),
-                rst.getString("contact"),
-                rst.getString("reason"),
-                rst.getString("date")
-            );
-                 
-            up.setVisible(true);
-            this.dispose();
-        }
-    } catch (SQLException ex) {
-        System.out.println("" + ex);
-    }
-        }
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered

@@ -34,40 +34,10 @@ public class updatepatient extends javax.swing.JFrame {
         return matcher.matches();
     }
 
-    public static String email1;
 
-    public boolean updateChecker() {
-        dbConnector dbc = new dbConnector();
-        try {
-           String query = "SELECT * FROM tbl_patient WHERE email = ? AND id != ?";
-            PreparedStatement pst = dbc.getConnection().prepareStatement(query);
-            pst.setString(1, email.getText());
-            pst.setString(2, patientId); 
-            ResultSet rs = pst.executeQuery();
-
-            if (rs.next()) {
-                email1 = rs.getString("email");
-                if (email1.equals(email.getText())) {
-                    JOptionPane.showMessageDialog(null, "Email is Already Used");
-                    email.setText("");
-                }
-                return true;
-            }
-        } catch (SQLException e) {
-            System.out.println("Checker Error: " + e.getMessage());
-        }
-        return false;
-    }
     
-    public void fillForm(String id, String fname, String lname, String email, String contact, String reason,String date) {
-   
-    this.fname.setText(fname);
-    this.lname.setText(lname);
-    this.email.setText(email);
-    this.contact.setText(contact);
-    this.reason.setText(reason);
-    this.date.setText(date);
-}
+    
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -154,54 +124,7 @@ public class updatepatient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dbConnector dbc = new dbConnector(); 
-
-    if (fname.getText().isEmpty() || lname.getText().isEmpty() || email.getText().isEmpty() ||
-        contact.getText().isEmpty() || date.getText().isEmpty() || reason.getText().isEmpty()) {
-
-        JOptionPane.showMessageDialog(null, "All fields are required");
-
-    } else if (!isEmailValid(email.getText())) {
-        JOptionPane.showMessageDialog(null, "Invalid email format");
-
-    } else if (updateChecker()) { 
-       
-        return;
-
-    } else if (!contact.getText().matches("\\d+")) {
-        JOptionPane.showMessageDialog(null, "Contact must be numeric!");
-
-    } else if (contact.getText().length() > 11) {
-        JOptionPane.showMessageDialog(null, "Contact number must not exceed 11 digits");
-
-    } else {
-        String query = "UPDATE tbl_patient SET fname = ?, lname = ?, contact = ?, email = ?, date = ?, reason = ? WHERE id = ?";
-
-        try {
-            PreparedStatement pstmt = dbc.getConnection().prepareStatement(query);
-            pstmt.setString(1, fname.getText());
-            pstmt.setString(2, lname.getText());
-            pstmt.setString(3, contact.getText());
-            pstmt.setString(4, email.getText());
-            pstmt.setString(5, date.getText());
-            pstmt.setString(6, reason.getText());
-            pstmt.setString(7, patient_id);
-           
-
-            int result = pstmt.executeUpdate();
-
-            if (result == 1) {
-                JOptionPane.showMessageDialog(null, "Patient updated successfully");
-             
-            } else {
-                JOptionPane.showMessageDialog(null, "Failed to update patient");
-            }
-
-            pstmt.close();
-        } catch (SQLException e) {
-            System.out.println("Update Error: " + e.getMessage());
-        }
-    }
+        
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
