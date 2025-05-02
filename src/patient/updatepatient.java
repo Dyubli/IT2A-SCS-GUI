@@ -170,10 +170,10 @@ public class updatepatient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField contact;
-    private javax.swing.JTextField date;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField fname;
+    public javax.swing.JTextField contact;
+    public javax.swing.JTextField date;
+    public javax.swing.JTextField email;
+    public javax.swing.JTextField fname;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -184,7 +184,7 @@ public class updatepatient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField lname;
-    private javax.swing.JTextField reason;
+    public javax.swing.JTextField lname;
+    public javax.swing.JTextField reason;
     // End of variables declaration//GEN-END:variables
 }

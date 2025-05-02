@@ -241,7 +241,31 @@ public class patientdash extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void p_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseClicked
+        int rowIndex = p_table.getSelectedRow();
+        if(rowIndex < 0){
+            JOptionPane.showMessageDialog(null,"Please Select an Item!");
+        }else{
+            try{
+                dbConnector dbc = new dbConnector();
+                TableModel tbl = p_table.getModel();
+                ResultSet rst = dbc.getData("SELECT * FROM tbl_patients WHERE patient_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
+                if(rst.next()){
+                    updatepatient edf = new updatepatient();
+                    edf.fname.setText(""+rst.getInt("fname"));
+                    edf.lname.setText(""+rst.getString("lname"));
+                    edf.date.setText(""+rst.getString("date"));
+                    edf.contact.setText(""+rst.getString("contact"));
+                    edf.email.setText(""+rst.getString("email"));
+                    edf.reason.setText(""+rst.getString("reason"));
+                    
+                    edf.setVisible(true);
+                    this.dispose();
 
+                }
+            }catch(SQLException ex){
+                System.out.println(""+ex);
+            }
+        }
     }//GEN-LAST:event_p_editMouseClicked
 
     private void p_editMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_p_editMouseEntered
