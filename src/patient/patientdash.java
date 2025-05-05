@@ -251,7 +251,7 @@ public class patientdash extends javax.swing.JFrame {
                 ResultSet rst = dbc.getData("SELECT * FROM tbl_patients WHERE patient_id = '"+tbl.getValueAt(rowIndex, 0)+"'");
                 if(rst.next()){
                     updatepatient edf = new updatepatient();
-                    edf.fname.setText(""+rst.getInt("fname"));
+                    edf.fname.setText(""+rst.getString("fname"));
                     edf.lname.setText(""+rst.getString("lname"));
                     edf.date.setText(""+rst.getString("date"));
                     edf.contact.setText(""+rst.getString("contact"));

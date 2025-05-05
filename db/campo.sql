@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2025 at 10:18 AM
+-- Generation Time: May 05, 2025 at 11:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -90,7 +90,11 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (55, 13, 'Updated a user: Dyubli', '2025-04-24 10:57:27'),
 (56, 13, 'User Login: Dyubli', '2025-04-24 12:12:31'),
 (57, 13, 'User Login: Dyubli', '2025-04-30 07:43:44'),
-(58, 13, 'Updated a user: Diovely', '2025-04-30 07:44:40');
+(58, 13, 'Updated a user: Diovely', '2025-04-30 07:44:40'),
+(59, 13, 'User Login: Dyubli', '2025-05-05 09:09:56'),
+(60, 13, 'User Logout: Dyubli', '2025-05-05 09:10:00'),
+(61, 13, 'User Login: Dyubli', '2025-05-05 09:14:39'),
+(62, 13, 'User Login: Dyubli', '2025-05-05 09:15:47');
 
 -- --------------------------------------------------------
 
@@ -154,9 +158,9 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`u_id`, `u_user`, `u_pass`, `u_email`, `u_contact`, `u_type`, `u_status`, `u_image`, `u_question`, `u_answer`) VALUES
 (11, 'Noya', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'noya@noya.com', '09280056394', 'Admin', 'Active', '', '', ''),
 (12, 'Campoy', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'campoy@campoy.com', '12345678902', 'User', 'Active', 'src/userImages/company_7716170.png', 'What is your fav color?', 'blue'),
-(13, 'Dyubli', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovely@gmail.com', '123123123123', 'Admin', 'Active', 'src/userImages/1.jpg', '', ''),
+(13, 'Dyubli', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovely@gmail.com', '123123123123', 'Admin', 'Active', 'src/userImages/1.jpg', 'Favorite color?', 'Black'),
 (14, 'markjoseph', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'markjoseph@gmail.com', '123123123123', 'User', 'Active', '', '', ''),
-(15, 'Diovely', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovelyargawanon@gmail.com', '0192019233902', 'User', 'Active', '', '', '');
+(15, 'Diovely', '73l8gRjwLftklgfdXT+MdiMEjJwGPVMsyVxe16iYpk8=', 'Diovelyargawanon@gmail.com', '0192019233902', 'User', 'Active', '', 'Favorite dish?', 'chicken');
 
 --
 -- Indexes for dumped tables
@@ -195,7 +199,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
