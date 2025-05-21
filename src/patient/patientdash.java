@@ -67,7 +67,7 @@ public class patientdash extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Patient Dashboard");
+        jLabel1.setText("PATIENTS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
         p_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -117,7 +117,7 @@ public class patientdash extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("UPDATE USER");
+        jLabel7.setText("UPDATE PATIENT");
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel7MouseClicked(evt);
@@ -129,7 +129,7 @@ public class patientdash extends javax.swing.JFrame {
                 jLabel7MouseExited(evt);
             }
         });
-        p_edit.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
+        p_edit.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
         jPanel5.add(p_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 205, 190, 60));
 
@@ -150,7 +150,7 @@ public class patientdash extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("DELETE USER");
+        jLabel8.setText("DELETE PATIENT");
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
@@ -159,7 +159,7 @@ public class patientdash extends javax.swing.JFrame {
                 jLabel8MouseExited(evt);
             }
         });
-        p_delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 20));
+        p_delete.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 20));
 
         jPanel5.add(p_delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 269, 190, 60));
 
