@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 11:44 AM
+-- Generation Time: May 21, 2025 at 05:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -94,7 +94,9 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (59, 13, 'User Login: Dyubli', '2025-05-05 09:09:56'),
 (60, 13, 'User Logout: Dyubli', '2025-05-05 09:10:00'),
 (61, 13, 'User Login: Dyubli', '2025-05-05 09:14:39'),
-(62, 13, 'User Login: Dyubli', '2025-05-05 09:15:47');
+(62, 13, 'User Login: Dyubli', '2025-05-05 09:15:47'),
+(63, 15, 'Deleted user ID: 6', '2025-05-21 03:45:45'),
+(64, 15, 'Deleted user ID: 1', '2025-05-21 03:51:22');
 
 -- --------------------------------------------------------
 
@@ -104,9 +106,9 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 
 CREATE TABLE `tbl_meds` (
   `m_id` int(11) NOT NULL,
-  `m_name` int(11) NOT NULL,
-  `stocks` int(11) NOT NULL,
-  `mg` int(11) NOT NULL
+  `m_name` varchar(255) NOT NULL,
+  `stocks` int(255) NOT NULL,
+  `dosage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -199,13 +201,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
+-- AUTO_INCREMENT for table `tbl_meds`
+--
+ALTER TABLE `tbl_meds`
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
-  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
