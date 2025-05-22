@@ -20,12 +20,10 @@ import net.proteanit.sql.DbUtils;
  */
 public class adminDashboard extends javax.swing.JFrame {
 
-    /**
-     * Creates new form adminDasboard
-     */
     public adminDashboard() {
         initComponents();
         displayLogs();
+        updateDashboardCounts();
     }
     
         public void displayLogs() {
@@ -38,7 +36,21 @@ public class adminDashboard extends javax.swing.JFrame {
             System.out.println("Error loading logs: "+e.getMessage());
         }
     }
-    
+        
+    private void updateDashboardCounts(){
+        try{
+            dbConnector db = new dbConnector();
+            
+            int activeUsers = db.getActiveUsersCount();
+            int numtype = db.getCount("tbl_user");
+        }
+        catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error loading dashboard data: " + e.getMessage(), 
+            "Error", JOptionPane.ERROR_MESSAGE);
+    }
+        
+        }
+            
     Color hovercolor = new Color(0,102,153);
     Color navcolor = new Color(0,153,204);
     /**
@@ -66,13 +78,14 @@ public class adminDashboard extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         table_user = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        numUsers = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        activeUsers = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        numAdmin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -251,9 +264,13 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel4.setPreferredSize(new java.awt.Dimension(200, 126));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 131, 48));
+        numUsers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        numUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel4.add(numUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 131, 48));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("NO. OF USERS");
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 140, 32));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 60, 210, 130));
 
@@ -264,9 +281,9 @@ public class adminDashboard extends javax.swing.JFrame {
         jLabel9.setText("ACTIVE USERS");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, 32));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 49, 131, 48));
+        activeUsers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        activeUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(activeUsers, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 49, 131, 48));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 210, 130));
 
@@ -274,13 +291,13 @@ public class adminDashboard extends javax.swing.JFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(200, 126));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("NO. OF USERS");
-        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, 32));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("NO. OF ADMIN");
+        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 140, 32));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 131, 48));
+        numAdmin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        numAdmin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel7.add(numAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 131, 48));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 210, 130));
 
@@ -451,14 +468,13 @@ public class adminDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
+    private javax.swing.JLabel activeUsers;
     private javax.swing.JLabel dashboard;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -468,6 +484,8 @@ public class adminDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel logout;
     private javax.swing.JLabel logs1;
+    private javax.swing.JLabel numAdmin;
+    private javax.swing.JLabel numUsers;
     private javax.swing.JPanel p_dashboard;
     private javax.swing.JPanel p_logs;
     private javax.swing.JPanel p_settings;

@@ -48,6 +48,8 @@ public class userDashboard extends javax.swing.JFrame {
         dashboard = new javax.swing.JLabel();
         medication = new javax.swing.JPanel();
         dashboard2 = new javax.swing.JLabel();
+        account1 = new javax.swing.JPanel();
+        dashboard3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -108,7 +110,7 @@ public class userDashboard extends javax.swing.JFrame {
         dashboard1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         dashboard1.setForeground(new java.awt.Color(255, 255, 255));
         dashboard1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard1.setText("ACCOUNT");
+        dashboard1.setText("LOGS");
         dashboard1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dashboard1MouseClicked(evt);
@@ -120,9 +122,9 @@ public class userDashboard extends javax.swing.JFrame {
                 dashboard1MouseExited(evt);
             }
         });
-        account.add(dashboard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 120, 19));
+        account.add(dashboard1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 19));
 
-        jPanel1.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, 60));
+        jPanel1.add(account, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 190, 60));
 
         patient.setBackground(new java.awt.Color(0, 153, 204));
         patient.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -175,7 +177,7 @@ public class userDashboard extends javax.swing.JFrame {
         dashboard2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         dashboard2.setForeground(new java.awt.Color(255, 255, 255));
         dashboard2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dashboard2.setText("MEDICATION");
+        dashboard2.setText("MEDICINE");
         dashboard2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dashboard2MouseClicked(evt);
@@ -206,6 +208,40 @@ public class userDashboard extends javax.swing.JFrame {
         );
 
         jPanel1.add(medication, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 190, 60));
+
+        account1.setBackground(new java.awt.Color(0, 153, 204));
+        account1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                account1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                account1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                account1MouseExited(evt);
+            }
+        });
+        account1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        dashboard3.setBackground(new java.awt.Color(255, 255, 255));
+        dashboard3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        dashboard3.setForeground(new java.awt.Color(255, 255, 255));
+        dashboard3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dashboard3.setText("ACCOUNT");
+        dashboard3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dashboard3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dashboard3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dashboard3MouseExited(evt);
+            }
+        });
+        account1.add(dashboard3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 130, 19));
+
+        jPanel1.add(account1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 190, 60));
 
         jPanel3.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 500));
 
@@ -369,6 +405,30 @@ public class userDashboard extends javax.swing.JFrame {
         patient.setBackground(navcolor);
     }//GEN-LAST:event_patientMouseExited
 
+    private void dashboard3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboard3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboard3MouseClicked
+
+    private void dashboard3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboard3MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboard3MouseEntered
+
+    private void dashboard3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboard3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dashboard3MouseExited
+
+    private void account1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_account1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_account1MouseClicked
+
+    private void account1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_account1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_account1MouseEntered
+
+    private void account1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_account1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_account1MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -405,9 +465,11 @@ public class userDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_name;
     private javax.swing.JPanel account;
+    private javax.swing.JPanel account1;
     private javax.swing.JLabel dashboard;
     private javax.swing.JLabel dashboard1;
     private javax.swing.JLabel dashboard2;
+    private javax.swing.JLabel dashboard3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
