@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2025 at 05:58 AM
+-- Generation Time: May 30, 2025 at 03:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -96,7 +96,10 @@ INSERT INTO `tbl_logs` (`log_id`, `log_uid`, `log_action`, `log_timestamp`) VALU
 (61, 13, 'User Login: Dyubli', '2025-05-05 09:14:39'),
 (62, 13, 'User Login: Dyubli', '2025-05-05 09:15:47'),
 (63, 15, 'Deleted user ID: 6', '2025-05-21 03:45:45'),
-(64, 15, 'Deleted user ID: 1', '2025-05-21 03:51:22');
+(64, 15, 'Deleted user ID: 1', '2025-05-21 03:51:22'),
+(65, 13, 'User Login: Dyubli', '2025-05-30 11:00:42'),
+(66, 13, 'User Logout: Dyubli', '2025-05-30 11:04:05'),
+(67, 13, 'User Login: Dyubli', '2025-05-30 11:23:50');
 
 -- --------------------------------------------------------
 
@@ -110,6 +113,13 @@ CREATE TABLE `tbl_meds` (
   `stocks` int(255) NOT NULL,
   `dosage` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_meds`
+--
+
+INSERT INTO `tbl_meds` (`m_id`, `m_name`, `stocks`, `dosage`) VALUES
+(2, 'Ambroxol', 150, '50');
 
 -- --------------------------------------------------------
 
@@ -133,6 +143,18 @@ CREATE TABLE `tbl_patients` (
 
 INSERT INTO `tbl_patients` (`patient_id`, `fname`, `lname`, `email`, `contact`, `reason`, `date`) VALUES
 (5, 'rojie', 'alberto', 'rojiemae@gmail.com', '09282439944', 'stomachache', '12/12/12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_reports`
+--
+
+CREATE TABLE `tbl_reports` (
+  `reports_id` int(11) NOT NULL,
+  `p_id` int(11) DEFAULT NULL,
+  `m_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -188,6 +210,14 @@ ALTER TABLE `tbl_patients`
   ADD PRIMARY KEY (`patient_id`);
 
 --
+-- Indexes for table `tbl_reports`
+--
+ALTER TABLE `tbl_reports`
+  ADD PRIMARY KEY (`reports_id`),
+  ADD UNIQUE KEY `p_id` (`p_id`),
+  ADD UNIQUE KEY `m_id` (`m_id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -201,19 +231,25 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_logs`
 --
 ALTER TABLE `tbl_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tbl_meds`
 --
 ALTER TABLE `tbl_meds`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_patients`
 --
 ALTER TABLE `tbl_patients`
   MODIFY `patient_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tbl_reports`
+--
+ALTER TABLE `tbl_reports`
+  MODIFY `reports_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
